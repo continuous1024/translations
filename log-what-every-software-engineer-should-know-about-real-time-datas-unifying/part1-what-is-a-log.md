@@ -53,7 +53,7 @@
 
 随着时间的推移，日志的用途从`ACID`的实现细节成长为数据库间复制数据的一种方法。
 结果证明，发生在数据库上的更改序列 即是 与远程副本数据库（`replica database`）保持同步 所需的操作。
-`Oracle`、`MySQL` 和`PostgreSQL`都包括一个日志传送协议（`log shipping protocol`），传输日志给作为备库（`slave`）的复本（`replica`）数据库。
+`Oracle`、`MySQL` 和`PostgreSQL`都包括一个日志传送协议（`log shipping protocol`），传输日志给作为备库（`slave`）的副本（`replica`）数据库。
 `Oracle`还把日志产品化为一个通用的数据订阅机制，为非`Oracle`数据订阅用户提供了[`XStreams`](http://docs.oracle.com/cd/E11882_01/server.112/e16545/xstrm_intro.htm)和[`GoldenGate`](http://www.oracle.com/technetwork/middleware/goldengate/overview/index.html)，在`MySQL`和`PostgreSQL`中类似设施是许多数据架构的关键组件。
 
 正是由于这样的起源，机器可识别的日志的概念主要都被局限在数据库的内部。日志作为做数据订阅机制的用法似乎是偶然出现的。
@@ -62,7 +62,7 @@
 分布式系统中的日志
 -------------------------
 
-日志解决了两个问题：更改动作的排序和数据的分发，这两个问题在分布式数据系统中更是尤为重要。
+日志解决了两个问题：更改动作的次序和数据的分发，这两个问题在分布式数据系统中更是尤为重要。
 协商达成一致的更改动作的顺序（或是协商达成不一致做法并去做有副作用的数据拷贝）是分布式系统设计的核心问题之一。
 
 分布式系统以日志为中心的方案是来自于一个简单的观察，我称之为**状态机复制原理**（`State Machine Replication Principle`）：
